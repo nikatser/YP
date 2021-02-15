@@ -1,0 +1,11 @@
+commit 1343c88222d4c42537f3607d79c6ed8f7e150115
+Author: Anna <brezgunova2001@gmail.com>
+Date:   Mon Feb 15 20:49:25 2021 +0300
+
+    add status.txt
+
+commit 2ffd89315af33554f7ab4dbb88bb054cac4e394d
+Author: Anna <brezgunova2001@gmail.com>
+Date:   Mon Feb 15 20:31:22 2021 +0300
+
+    add .gitignore
