@@ -1,0 +1,52 @@
+CREATE TABLE user 
+(
+ id INT NOT NULL,
+ name VARCHAR(20) NOT NULL,
+ email VARCHAR(50) NOT NULL,
+ password VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE post 
+(
+ id INT NOT NULL,
+ title VARCHAR(15) NOT NULL ,
+ text VARCHAR(300) NOT NULL,
+ photo_url VARCHAR(100),
+ likes INT NOT NULL default 0,
+ created_at DATE NOT NULL ,
+ modified_at DATE NOT NULL,
+);
+CREATE TABLE log 
+(
+    id INT NOT NULL,
+    error_message VARCHAR(50) NOT NULL default "",
+    date_at date NOT NULL,
+    error_code int NOT NULL
+);
+
+INSERT INTO user VALUES ('1','user1', 'u1', 'u1u');
+INSERT INTO user VALUES ('2','user2', 'u2', 'u2uu');
+INSERT INTO user VALUES ('3','user3', 'u3', 'u3uuu');
+INSERT INTO user VALUES ('4','user4', 'u4', 'u4uuuu');
+
+INSERT INTO post VALUES ('1','Hi!', '1234', '1u','2','2001-1-1', '2021-2-2');
+INSERT INTO post VALUES ('3','Hi', '11234', '3u','3','2021-3-3', '2023-2-2');
+INSERT INTO post VALUES ('4','Hello!', '12344', '4u','6','2014-1-1', '2021-4-2');
+
+INSERT INTO log VALUES ('1','e1','2021-1-1','1');
+INSERT INTO log VALUES ('4','e4','2014-1-1','4');
+
+SELECT * FROM post ORDER BY created_at;
+SELECT * FROM post WHERE created_at BETWEEN '2013-12-11' and '2021-12-22';
+SELECT * FROM post WHERE id in (SELECT id FROM user WHERE name = 'user1') ORDER BY created_at;
+SELECT * FROM post WHERE id=4;
+UPDATE post SET likes = 8 
+WHERE ID = 3;
+SELECT * FROM post ORDER BY created_at LIMIT 10;
+DELETE from post
+WHERE ID = 1;
+INSERT INTO post VALUES ('2','!', '!', '2u','4','2016-12-16', '2018-2-2');
+
+INSERT INTO user VALUES ('5','user5', 'u5', 'u5uuuuu');
+SELECT * FROM user WHERE name = 'user1' and password = 'u1u';
+SELECT * FROM user WHERE id not in (SELECT id FROM post);
